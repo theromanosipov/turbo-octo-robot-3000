@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<spinta xmlns="www.romanosipov.com" xsi:schemaLocation="www.romanosipov.lt spinta.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" tvarkyta="2014-01-23 2014-04-01">
+	<laikmena talpa="0.02" pavadinimas="Dešinysis stalčius">
+		<daiktas>
+			<pavadinimas>Tušas</pavadinimas>
+			<savininkas>Zuikis</savininkas>
+			<aprašymas>Juodo tušo bonkutė, kurios niekas nėra atidaręs jau daugelį metų</aprašymas>
+		</daiktas>
+		<daiktasIšmetimui pavadinimas="Batas"/>
+	</laikmena>
+	<laikmena talpa="0.4" pavadinimas="Vidurinis užduris">
+		<laikmena talpa="0.15" pavadinimas="Vidurinė lentyna">
+			<daiktas>
+				<pavadinimas>Okarina</pavadinimas>
+				<savininkas>Zuikis</savininkas>
+				<aprašymas>Juoda Alto C okarina</aprašymas>
+			</daiktas>
+			<daiktas>
+				<pavadinimas>Žiedų valdovas: Žiedo brolija</pavadinimas>
+				<savininkas>Zuikis</savininkas>
+				<autorius>J. R. R. Tolkien</autorius>
+				<kalba>LT</kalba>
+				<metai>2006</metai>
+			</daiktas>
+			<daiktas>
+				<pavadinimas>Prisukamo paukščio kronikos</pavadinimas>
+				<savininkas>Lapė</savininkas>
+				<autorius>Haruki Murakami</autorius>
+				<kalba>LT</kalba>
+				<metai>2009</metai>
+			</daiktas>
+			<daiktas>
+				<pavadinimas>South of the Border West of the Sun</pavadinimas>
+				<savininkas>Zuikis</savininkas>
+				<autorius>Haruki Murakami</autorius>
+				<kalba>EN</kalba>
+				<metai>2009</metai>
+			</daiktas>
+			<daiktas>
+				<pavadinimas>Harry Potter and the Philosopher's Stone</pavadinimas>
+				<savininkas>Zuikis</savininkas>
+				<autorius>J. K. Rowling</autorius>
+				<kalba>EN</kalba>
+				<metai>2008</metai>
+			</daiktas>
+			<daiktas>
+				<pavadinimas>Žaidimų sąrašas</pavadinimas>
+				<savininkas>Zuikis</savininkas>
+				<aprašymas>Dekoruotas ir vis ilgėjantis Zuikio pabaigtų žaidimų sąrašas</aprašymas>
+			</daiktas>
+			<daiktasIšmetimui pavadinimas="Batas"/>
+		</laikmena>
+	</laikmena>
+</spinta>

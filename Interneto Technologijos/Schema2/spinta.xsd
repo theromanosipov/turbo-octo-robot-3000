@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="www.romanosipov.com" xmlns="www.romanosipov.com" xmlns:ro="www.romanosipov.com" elementFormDefault="qualified"> 
+
+	<xs:element name="spinta" type="LaikmenaLaikmenųTvarkoma">
+		<xs:keyref name="daiktųNuoroda" refer="daiktųRaktas"> 
+			<xs:selector xpath="ro:daiktasIšmetimui"/> 
+			<xs:field xpath="@pavadinimas"/> 
+		</xs:keyref>
+	</xs:element>
+
+	<!-- Paprastieji tipai -->
+	<xs:simpleType name="tūris"> 
+		<xs:restriction base="xs:double"> 
+			<xs:minInclusive value="0"/> 
+		</xs:restriction> 
+	</xs:simpleType> 
+	
+	<xs:simpleType name="aprašymas"> 
+		<xs:restriction base="xs:string"> 
+			<xs:minLength value="5"/> 
+		</xs:restriction> 
+	</xs:simpleType>
+
+	<xs:simpleType name="datųSąrašas"> 
+		<xs:list itemType="xs:date"/> 
+	</xs:simpleType> 	
+	
+	<!-- Sudėtingi tipai, paprastas turinys -->
+	<xs:complexType name="aprašymasSuKalba"> 
+		<xs:simpleContent> 
+			<xs:extension base="aprašymas"> 
+				<xs:attribute name="kalba" type="xs:language"/> 
+			</xs:extension> 
+		</xs:simpleContent> 
+	</xs:complexType> 
+	
+	<xs:complexType name="trumpasAprašymasSuKalba"> 
+		<xs:simpleContent> 
+			<xs:restriction base="aprašymasSuKalba"> 
+				<xs:maxLength value="500"/> 
+			</xs:restriction> 
+		</xs:simpleContent> 
+	</xs:complexType> 
+	
+	<!-- Sudėtingi tipai, sudėtingas turinys -->
+	<xs:complexType name="LaikmenaLaikmenųDaiktų"> 
+		<xs:sequence> 
+			<xs:element name="daiktas" type="daiktas" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="laikmena" type="LaikmenaDaiktų" minOccurs="0" maxOccurs="unbounded"/> 
+		</xs:sequence> 
+		<xs:attribute name="talpa" type="tūris"/>
+		<xs:attribute name="pavadinimas" type="xs:string"/>
+	</xs:complexType> 
+	
+	<xs:complexType name="LaikmenaDaiktų">
+		<xs:complexContent> 
+			<xs:restriction base="LaikmenaLaikmenųDaiktų"> 
+				<xs:sequence> 
+					<xs:element name="daiktas" type="daiktas" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence> 
+				<xs:attribute name="talpa" type="tūris"/>
+				<xs:attribute name="pavadinimas" type="xs:string"/>
+			</xs:restriction>
+		</xs:complexContent> 
+	</xs:complexType>
+	
+	<xs:complexType name="LaikmenaLaikmenų"> 
+		<xs:sequence> 
+			<xs:element name="laikmena" type="LaikmenaLaikmenųDaiktų" minOccurs="0" maxOccurs="unbounded">
+				<xs:key name="daiktųRaktas">
+					<xs:selector xpath="ro:daiktas | ro:laikmena/ro:daiktas" />
+					<xs:field xpath="ro:pavadinimas" />
+				</xs:key>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType> 
+	
+	<xs:complexType name="LaikmenaLaikmenųTvarkoma"> 
+		<xs:complexContent>
+			<xs:extension base="LaikmenaLaikmenų"> 
+				<xs:sequence>
+					<xs:element name="daiktasIšmetimui" type="DaiktasIšmetimui" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="tvarkyta" type="datųSąrašas"/>
+			</xs:extension> 
+		</xs:complexContent> 
+	</xs:complexType> 
+	
+	<xs:complexType name="daiktas" mixed="true"> 
+		<xs:sequence> 
+			<xs:element name="pavadinimas" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="savininkas" type="xs:string" minOccurs="1" maxOccurs="1"/> 
+			<xs:choice>
+				<xs:element name="aprašymas" type="trumpasAprašymasSuKalba" minOccurs="1" maxOccurs="1"/>
+				<xs:sequence> 
+					<xs:element name="autorius" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="kalba" type="xs:language" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="metai" type="xs:gYear" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType> 
+	
+	<xs:complexType name="DaiktasIšmetimui">
+		<xs:attribute name="pavadinimas" type="xs:string"/>
+	</xs:complexType>
+	 
+
+	
+	
+
+
+
+</xs:schema>
