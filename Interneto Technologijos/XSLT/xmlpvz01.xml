@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<?xml-stylesheet href="transf.xslt" type="text/xsl"?> 
+<?xml-stylesheet href="transf01.xslt" type="text/xsl"?> 
  
 <knyga> 
 	<pavadinimas>XSLT</pavadinimas> 
